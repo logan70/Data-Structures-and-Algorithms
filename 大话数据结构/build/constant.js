@@ -1,6 +1,3 @@
-const {
-  genLink,
-}  = require('./utils')
 const bookName = '大话数据结构'
 exports.exampleDirName = 'example'
 exports.imagesDirName = 'images'
@@ -20,6 +17,6 @@ exports.chapterNames = [
 exports.HEADER = `
 # 《${bookName}》学习笔记
 
-![Cover](${genLink('build/cover.jpg')})
+![Cover](genLink('build/cover.jpg'))
 
 `

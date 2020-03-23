@@ -34,7 +34,7 @@ function genLink(...pathArr) {
   return encodeURI(link)
 }
 
-const getChapterIndex = str => chapterNames.findIndex(str)
+const getChapterIndex = str => chapterNames.findIndex(name => name === str)
 function getChapterDirs() {
   return fs.readdirSync(resolve())
     .filter(name => {
