@@ -20,6 +20,6 @@ exports.chapterNames = [
 exports.HEADER = `
 # 《${bookName}》学习笔记
 
-![Cover](${genLink('cover.jpg')})
+![Cover](${genLink('build/cover.jpg')})
 
 `

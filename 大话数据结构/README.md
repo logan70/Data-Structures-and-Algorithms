@@ -1,7 +1,7 @@
 
 # 《大话数据结构》学习笔记
 
-![Cover](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/cover.jpg?raw=true)
+![Cover](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/build/cover.jpg?raw=true)
 
 ## 第一章-数据结构绪论
 
