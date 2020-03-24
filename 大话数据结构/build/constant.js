@@ -19,4 +19,8 @@ exports.HEADER = `
 
 ![Cover](genLink('build/cover.jpg'))
 
+## 数据结构常见术语的中英文对照
+
+[数据结构常见术语的中英文对照](genlink('terms.md'))
+
 `

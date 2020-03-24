@@ -3,6 +3,10 @@
 
 ![Cover](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/build/cover.jpg?raw=true)
 
+## 数据结构常见术语的中英文对照
+
+[数据结构常见术语的中英文对照](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/terms.md)
+
 ## 第一章-数据结构绪论
 
 [【学习笔记】](https://github.com/logan70/Data-Structures-and-Algorithms/tree/master/大话数据结构/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA)
