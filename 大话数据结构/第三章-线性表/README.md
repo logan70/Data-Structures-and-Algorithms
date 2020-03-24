@@ -24,7 +24,7 @@ endADT
 
 线性表的顺序存储结构，指的是用一段地址连续的存储单元依次存储线性表的数据元素。
 
-可以用C语言的一维数组来实现线性表的顺序存储结构，详情见[示例程序sqlist.h](genlink(example/3.2-sqlist.h))。
+可以用C语言的一维数组来实现线性表的顺序存储结构，详情见[示例程序sqlist.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.2-sqlist.h)。
 
 > 在线性表的顺序存储结构中，可以算出任意位置的地址，所以存取操作的时间复杂度为`O(1)`，我们把具有这一特点的存储结构称为**随机存取结构**。
 
@@ -34,7 +34,7 @@ endADT
 
 > 时间复杂度为`O(1)`
 
-对于线性表的顺序存储结构，获得元素，把数组第`i-1`下标的值返回即可，详见[示例程序sqlist.c](genlink(example/3.3-sqlist.c))中的 `GetElem()`函数。
+对于线性表的顺序存储结构，获得元素，把数组第`i-1`下标的值返回即可，详见[示例程序sqlist.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.3-sqlist.c)中的 `GetElem()`函数。
 
 ### 插入操作
 
@@ -48,7 +48,7 @@ endADT
 - 将要插入的元素填入位置i处；
 - 表长加1.
 
-实现代码详见[示例程序sqlist.c](genlink(example/3.3-sqlist.c))中的 `ListInsert()`函数。
+实现代码详见[示例程序sqlist.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.3-sqlist.c)中的 `ListInsert()`函数。
 
 ### 删除操作
 
@@ -61,7 +61,7 @@ endADT
 - 从删除元素位置开始遍历到最后一个元素位置，分别将他们都向前移动一个位置；
 - 表长减1。
 
-实现代码详见[示例程序sqlist.c](genlink(example/3.3-sqlist.c))中的 `ListDelete()`函数。
+实现代码详见[示例程序sqlist.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.3-sqlist.c)中的 `ListDelete()`函数。
 
 **线性表顺序存储结构的优缺点**
 
@@ -88,7 +88,7 @@ n个节点（ai的存储映像）链结成一个链表，即为线性表（a1,a2
 3. 若找到链表末尾，则说明第i个元素不存在；
 4. 否则查找成功，返回结点p的数据。
 
-实现代码算法详见[示例程序sqlist.h](genlink(example/3.5-linklist.c))中的 `GetElem()`函数。
+实现代码算法详见[示例程序sqlist.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.5-linklist.c)中的 `GetElem()`函数。
 
 ## 单链表的插入与删除
 
@@ -103,7 +103,7 @@ n个节点（ai的存储映像）链结成一个链表，即为线性表（a1,a2
 7. 单链表插入标准语句 `s->next = prev->next; prev->next = s;`；
 8. 返回成功。
 
-实现代码算法详见[示例程序sqlist.h](genlink(example/3.5-linklist.c))中的 `ListInsert()`函数。
+实现代码算法详见[示例程序sqlist.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.5-linklist.c)中的 `ListInsert()`函数。
 
 **单链表第i个数据删除结点的算法思路：**
 
@@ -117,7 +117,7 @@ n个节点（ai的存储映像）链结成一个链表，即为线性表（a1,a2
 8. 释放tmp节点；
 9. 返回成功。
 
-实现代码算法详见[示例程序sqlist.h](genlink(example/3.5-linklist.c))中的 `ListDelete()`函数。
+实现代码算法详见[示例程序sqlist.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.5-linklist.c)中的 `ListDelete()`函数。
 
 ## 单链表的整表创建
 
@@ -131,7 +131,7 @@ n个节点（ai的存储映像）链结成一个链表，即为线性表（a1,a2
    2. 随机生成一数字赋值给p的数据域p->elem；
    3. 将p插入到头结点与前一新结点之间。
 
-实现代码算法详见[示例程序sqlist.h](genlink(example/3.5-linklist.c))中的 `CreateListHead()`函数。
+实现代码算法详见[示例程序sqlist.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.5-linklist.c)中的 `CreateListHead()`函数。
 
 **单链表整表创建的算法思路（尾插法）：**
 
@@ -145,7 +145,7 @@ n个节点（ai的存储映像）链结成一个链表，即为线性表（a1,a2
    3. 将p插入到尾结点r之后；
    4. 更新尾结点r的指向为p。
 
-实现代码算法详见[示例程序sqlist.h](genlink(example/3.5-linklist.c))中的 `CreateListTail()`函数。
+实现代码算法详见[示例程序sqlist.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.5-linklist.c)中的 `CreateListTail()`函数。
 
 ## 单链表的整表删除
 
@@ -158,7 +158,7 @@ n个节点（ai的存储映像）链结成一个链表，即为线性表（a1,a2
    2. 释放p；
    3. 将q赋值给p。
 
-实现代码算法详见[示例程序sqlist.h](genlink(example/3.5-linklist.c))中的 `ClearList()`函数。
+实现代码算法详见[示例程序sqlist.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/example/3.5-linklist.c)中的 `ClearList()`函数。
 
 ## 单链表结构与顺序存储结构对比
 
@@ -181,11 +181,11 @@ n个节点（ai的存储映像）链结成一个链表，即为线性表（a1,a2
 
 通常，使用指向终端结点的尾指针来表示循环链表，这样查找开始结点和终端结点都很方便，如下图所示。
 
-![循环链表](genlink(images/1-circylar-linked-list.png))
+![循环链表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/images/1-circylar-linked-list.png?raw=true)
 
 例如合并两个循环链表，尾指针作用就体现出来了，只需要如下操作即可：
 
-![合并两个循环链表](genlink(images/2-combine-two-circylar-linked-list.png))
+![合并两个循环链表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/images/2-combine-two-circylar-linked-list.png?raw=true)
 
 ```c
 p = rearA->next; // 保存A表的头结点
@@ -199,7 +199,7 @@ rearB->next = p; // 原A表头结点与B表尾结点相连
 
 双向链表的**插入操作**如下所示：
 
-![双向链表的插入操作](genlink(images/3-double-linked-list-insert.png))
+![双向链表的插入操作](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/images/3-double-linked-list-insert.png?raw=true)
 
 ```c
 s->prior = p; // 把p赋值给s的前驱
@@ -210,7 +210,7 @@ p->next = s; // 把s赋值给p的后继
 
 双向链表的**删除操作**如下所示：
 
-![双向链表的删除操作](genlink(images/5-double-linked-list-delete.png))
+![双向链表的删除操作](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/images/5-double-linked-list-delete.png?raw=true)
 
 ```c
 p->prior->next = p->next; // 把p->next赋值给p->prior的后继
@@ -220,4 +220,4 @@ free(p); // 释放p结点
 
 双链表也可以是循环链表，非空的循环的带头结点的双向链表如下图所示：
 
-![非空的循环的带头结点的双向链表](genlink(images/4-double-circular-linked-list-insert.png))
+![非空的循环的带头结点的双向链表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8/images/4-double-circular-linked-list-insert.png?raw=true)
