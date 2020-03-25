@@ -7,7 +7,7 @@ void getnext(char * p, int * next);
 
 int main(void)
 {
-  KMP("abcdcccaassf", "assf");
+  KMP("aaaaaaaad", "aaaad");
   KMP("abcdcccaassf", "cdccc");
   KMP("abcdcccaassf", "caassfc");
   return 0;
@@ -49,7 +49,10 @@ void getnext(char * p, int * next)
     {
       i++;
       j++;
-      next[i] = j;
+      if (p[i] != p[j])
+        next[i] = j;
+      else
+        next[i] = next[j];
     }
     else
       j = next[j];

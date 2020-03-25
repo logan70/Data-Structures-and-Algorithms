@@ -95,3 +95,11 @@ KMP的主体算法代码实现详见 [示例程序kmp.c](https://github.com/loga
 如果匹配失败则回退到次大匹配继续匹配（细品）。
 
 next获取的代码实现详见 [示例程序kmp.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%B2/example/5.2-kmp.c) 中的`getnext()`函数。
+
+## KMP模式匹配算法改进
+
+运用KMP算法时，如果模式字符串中有多个与首位字符相等的字符，会出现多余的判断，如下图中2、3、4、5步骤是多余的。
+
+![KMP改进](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%B2/images/8-kmp-optm.png?raw=true)
+
+我们可以用首位next[1]的值去取代与它相等的字符后续next[j]的值，代码实现详见 [示例程序kmp-optm.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%B2/example/5.3-kmp-optm.c)
