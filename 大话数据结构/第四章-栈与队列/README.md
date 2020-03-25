@@ -110,3 +110,59 @@ endADT
 9. 最后一个数字`2`,输出，总的表达式为`9 3 1-3*+ 10 2`
 10. 因已经到最后，所以将栈中符号全部出栈并输出。最终输出的后缀表达式结果为`9 3 1-3*+ 10 2/+`
 
+## 队列的定义
+
+**队列（queue）** ：只允许在一端进行插入操作，而在另一端进行删除操作的线性表。
+
+队列是一种先进先出（First In First Out，FIFO）的线性表。允许插入的一端称为队尾，允许删除的一端称为队头，如下图所示。
+
+![队列](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/images/6-queue.png?raw=true)
+
+## 队列的抽象数据类型
+
+```
+ADT 队列（Queue）
+Data
+  同线性表。元素具有相同类型，相邻元素具有前驱和后继关系。
+Operation
+  InitQueue(*Q): 初始化操作，建立一个空队列Q
+  DestoryQueue(*Q): 若队列Q存在，则销毁它。
+  ClearQueue(*Q): 将队列Q清空。
+  QueueEmpty(*Q): 若队列Q为空，返回true，否则返回false。
+  GetHead(*Q, *e): 若队列Q存在且非空，用e返回队列Q的队头元素。
+  EnQueue(*Q, e): 若队列Q存在，插入新元素e到队列Q中并成为队尾元素。
+  DeQueue(*Q, *e): 删除队列Q中队头元素，并用e返回其值。
+  QueueLength(*Q): 返回队列Q的元素个数。
+endADT
+```
+
+## 循环队列
+
+队列顺序存储，入列操作是在队尾追加元素，时间复杂度为`O(1)`，但是出列操作，队列中所有元素都要向前移动，时间复杂度为`O(n)`。
+
+如果使用头、尾指针标记，出列后不移动元素，还会存在“假溢出”的现象（入列时数组溢出但是队头仍有空闲位置）。
+
+所以解决办法就是使用循环队列，**循环队列**是头尾相接的顺序存储结构。
+
+为防止空队列和满队列时头尾指针都相同，空队列时头尾指针相同，满队列时保留一个元素空间，如下图所示。
+
+![循环队列](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/images/7-circular-queue.png?raw=true)
+
+- 队列满的条件是：`(rear + 1) % QueueSize == front`；
+- 队列长度计算公式为：`(rear - front + QueueSize) % QueueSize`。
+
+循环队列结构及相关操作的定义详见[示例程序circularqueue.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/example/4.8-circularqueue.h)。
+
+循环队列相关操作的代码实现详见[示例程序circularqueue.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/example/4.9-circularqueue.c)。
+
+循环队列的测试程序代码详见[示例程序circularqueue.test.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/example/4.10-circularqueue.test.c)。
+
+## 队列的链式存储结构及实现
+
+队列的链式存储结构，其实就是线性表的单链表，只不过只能尾进头出而异，我们把它简称为链队列。
+
+链队列结构及相关操作的定义详见[示例程序linkqueue.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/example/4.11-linkqueue.h)。
+
+链队列相关操作的代码实现详见[示例程序linkqueue.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/example/4.12-linkqueue.c)。
+
+链队列的测试程序代码详见[示例程序linkqueue.test.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/example/4.13-linkqueue.test.c)。
