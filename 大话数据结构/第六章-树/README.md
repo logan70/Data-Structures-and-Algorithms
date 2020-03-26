@@ -179,3 +179,15 @@ BFS-Order traversing:
 ABCDEFGHIJK
 ```
 
+## 线索二叉树
+
+将二叉树中原本为空的**左孩子指针**改为指向该结点在中序序列中的前驱，原本为空的**右孩子指针**改为指向该节点在中序序列中的后继。这种指向前驱和后继的指针称为线索，加上线索的二叉链表称为线索链表，相应的二叉树称为**线索二叉树（Threaded Binary Tree）** ，如下图所示。
+
+![线索二叉树](genlink(images/9-threaded-binary-tree.png))
+
+线索二叉树结构定义及操作函数原型详见[示例程序threaded-bitree.h](genlink(example/6.4-threaded-bitree.h))。
+
+线索二叉树操作函数实现代码详见[示例程序threaded-bitree.c](genlink(example/6.5-threaded-bitree.c))。
+
+[示例程序threaded-bitree.test.c](genlink(example/6.6-threaded-bitree.test.c)) 演示了如何建立线索二叉树并遍历。
+
