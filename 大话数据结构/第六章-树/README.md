@@ -183,11 +183,58 @@ ABCDEFGHIJK
 
 将二叉树中原本为空的**左孩子指针**改为指向该结点在中序序列中的前驱，原本为空的**右孩子指针**改为指向该节点在中序序列中的后继。这种指向前驱和后继的指针称为线索，加上线索的二叉链表称为线索链表，相应的二叉树称为**线索二叉树（Threaded Binary Tree）** ，如下图所示。
 
-![线索二叉树](genlink(images/9-threaded-binary-tree.png))
+![线索二叉树](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/images/9-threaded-binary-tree.png?raw=true)
 
-线索二叉树结构定义及操作函数原型详见[示例程序threaded-bitree.h](genlink(example/6.4-threaded-bitree.h))。
+线索二叉树结构定义及操作函数原型详见[示例程序threaded-bitree.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/example/6.4-threaded-bitree.h)。
 
-线索二叉树操作函数实现代码详见[示例程序threaded-bitree.c](genlink(example/6.5-threaded-bitree.c))。
+线索二叉树操作函数实现代码详见[示例程序threaded-bitree.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/example/6.5-threaded-bitree.c)。
 
-[示例程序threaded-bitree.test.c](genlink(example/6.6-threaded-bitree.test.c)) 演示了如何建立线索二叉树并遍历。
+[示例程序threaded-bitree.test.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/example/6.6-threaded-bitree.test.c) 演示了如何建立线索二叉树并遍历。
 
+> 需要注意的是，如果二叉树线索化，则不能使用普通的遍历方法进行遍历，因为原本为空的孩子指针被赋值，会导致递归出口条件不满足，造成死循环
+
+## 树、森林与二叉树的转换
+
+### 树转换为二叉树
+
+数转换为二叉树的步骤如下：
+
+1. 加线。在所有兄弟结点之间加一条连线。
+2. 去线。对树中每个节点，只保留它与第一个孩子结点的连线，删除它与其他孩子结点之间的连线。
+3. 层次调整。以树的根结点为轴心，将整棵树顺时针旋转一定角度，使之结构层次分明，如下图所示。
+
+![树转换为二叉树](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/images/10-tree-to-binary-tree.png?raw=true)
+
+### 森林转换为二叉树
+
+1. 把每个树转换为二叉树。
+2. 第一棵二叉树不动，从第二棵开始，依次把后一棵二叉树的根结点作为前一棵二叉树的根结点的右孩子，用线连接起来，如下图所示：
+
+![森林转换为二叉树](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/images/11-forest-to-binary-tree.png?raw=true)
+
+### 二叉树转换为树
+
+1. 加线，若结点的左孩子存在，则将结点与左孩子的右孩子，左孩子的右孩子的右孩子。。。用线连接起来。
+2. 去线，将结点与右孩子，右孩子的右孩子。。。之间连线去除。
+3. 层次调整，如下图所示：
+
+![二叉树转换为树](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/images/12-binary-tree-to-tree.png?raw=true)
+
+### 二叉树转换为森林
+
+1. 从根结点开始，若右孩子存在，则把与右孩子结点的连线删除，再看分离后的二叉树，一直分离到所有右孩子连线都删除。
+2. 将每棵分离后的二叉树转换为树即可，如下图所示：
+
+![二叉树转换为森林](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91/images/13-binary-tree-to-forest.png?raw=true)
+
+### 树与森林的遍历
+
+树的遍历分为两种方式：
+
+1. 先根遍历：先访问根结点，然后依次先根遍历每棵子树；
+2. 后根遍历：依次后根遍历每棵子树，然后再访问根结点。
+
+森林遍历分为两种方式：
+
+1. 前序遍历：依次先根遍历森林中的每棵树；
+2. 后序遍历：依次后根遍历森林中的每棵树。
