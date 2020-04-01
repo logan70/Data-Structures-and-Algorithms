@@ -82,27 +82,79 @@ endADT
 
 下图为无向图及其邻接矩阵存储的示意图：
 
-![无向图邻接矩阵](genlink(images/4-adjacency-matrix.png))
+![无向图邻接矩阵](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/4-adjacency-matrix.png?raw=true)
 
 - 由于不存在顶点到自身的边，所以矩阵主对角线的值均为0；
 - 无向图的边都是成对存在，故无向图的边数组是一个对称矩阵，即`aij = aji`。
 
 下图为有向图及其邻接矩阵存储的示意图：
 
-![有向图邻接矩阵](genlink(images/5-directed-adjacency-matrix.png))
+![有向图邻接矩阵](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/5-directed-adjacency-matrix.png?raw=true)
 
 - 顶点vi的入度是第vi列各数之和，出度是第vi行的各数之和。
 
 网图的邻接矩阵中过保存权值，0表示`i = j`，`∞`代表不存在，如下图所示：
 
-![网图邻接矩阵](genlink(images/6-network-adjacency-matrix.png))
+![网图邻接矩阵](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/6-network-adjacency-matrix.png?raw=true)
+
+无向网图的邻接矩阵实现代码详见 [adjacency-matrix.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c)
 
 ### 邻接表
 
 **邻接表（Adjacency List）** ：数组与链表相结合的图的存储方法。用一个一位数组存储图中的顶点，包括顶点信息和一个指向邻接点单链表的指针，如下图所示：
 
-![无向图邻接表](genlink(images/7-adjacency-list.png))
+![无向图邻接表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/7-adjacency-list.png?raw=true)
 
 无向图顶点v1关联的单链表称作顶点vi的边表，有向图顶点v1关联的单链表称作顶点vi作为弧尾的出边表。
 
 有向图的邻接表结构是类似的，为了便于确定顶点的入度或以顶点为弧头的弧，可以建立一个有向图的逆邻接表，即对每个顶点vi都建立一个链接为v1为弧头的表，如下图所示：
+
+![有向图邻接表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/7-undirected-adjacency-list.png?raw=true)
+
+对于带权值的网图，可以在边表结点定义中再增加一个weight的数据域，存储权值信息即可，如下图所示：
+
+![网图邻接表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/8-network-adjacency-list.png?raw=true)
+
+无图邻接表的实现代码详见 [netword-adjacency-list](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.2-network-adjacency-list.c)
+
+### 十字链表（Orthogonal List）
+
+**顶点表结点结构：**
+
+- firstin表示入边表头指针，指向该顶点的入边表中第一个结点。
+- firstout表示出边表头指针，指向该顶点的出边表中的第一个结点。
+
+**边表结点结构：**
+
+- tailvex：弧起点在顶点表的下标
+- headvex：弧终点在顶点表中的下标
+- headlink：入边表指针域，指向终点相同的下一条边
+- taillink：边表指针域，指向起点相同的下一条边
+- weight：如果是网，则可以增加weight域来存储权值
+
+十字链表整体如下图所示，图中虚线其实就是此图的逆邻接表的表示：
+
+![十字链表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/9-orthogonal-list.png?raw=true)
+
+### 邻接多重表
+
+无向图的邻接表，对于关注重点是顶点的情况比较适用，但是关注重点是边的操作的情况，则需要找到这条边的两个边表结点进行操作，比较繁琐，故优化如下：
+
+重新定义**边表结点结构** ：
+
+- ivex和jvex：与某条边依附的两个顶点在顶点表中的下标。
+- ilink：指向依附顶点ivex的下一条边。
+- jlink指向依附顶点jvex的下一条边。
+
+这就是邻接多重表的表结构，如下图所示：
+
+![邻接多重表](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/10-adjacency-mutiple-list.png?raw=true)
+
+### 边集数组
+
+**边集数组** 是由两个一维数组构成。一个是存储顶点的信息；另一个是存储边的信息，这个边数组每个数据元素由一条边的起点下标（begin）、终点下标（end）和权（weight）组成，如下图所示：
+
+边集数组适合对边依次进行处理的操作，不适合对顶点相关的操作。
+
+![边集数组](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/11-edges-array.png?raw=true)
+
