@@ -158,3 +158,28 @@ endADT
 
 ![边集数组](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/images/11-edges-array.png?raw=true)
 
+## 图的遍历
+
+**图的遍历（Traversing Graph）** 是指从图中某一顶点触发访遍图中其余顶点，且使没每个顶点仅被访问一次的过程。
+
+图的遍历通常有两种遍历次序方案：**深度优先遍历**和**广度优先遍历**。
+
+### 深度优先遍历
+
+深度优先遍历（Depth First Search），也称为深度优先搜索，简称为DFS。
+
+从图中某个顶点v出发，访问此顶点，然后从v的未被访问的邻接点出发深度优先遍历图，直至图中所有和v有路径相通的顶点都被访问到。
+
+> 对于非连通图，若图中尚有顶点未被访问，则另选图中一个未曾被访问的顶点作为起点，重复上述过程，直至图中所有顶点都被访问到为止。
+
+邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.3-traverse1.c) 中的`DFSTraverse`函数。
+
+邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.2-network-adjacency-list.c) 中的`DFSTraverse`函数。
+
+### 广度优先遍历
+
+**广度优先遍历（Breadth First Search）** ，又称为广度优先搜索，简称BFS。
+
+邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.3-traverse1.c) 中的`BFSTraverse`函数。
+
+邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.2-network-adjacency-list.c) 中的`BFSTraverse`函数。
