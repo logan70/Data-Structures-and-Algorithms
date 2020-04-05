@@ -172,14 +172,41 @@ endADT
 
 > 对于非连通图，若图中尚有顶点未被访问，则另选图中一个未曾被访问的顶点作为起点，重复上述过程，直至图中所有顶点都被访问到为止。
 
-邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.3-traverse1.c) 中的`DFSTraverse`函数。
+邻接矩阵的深度优先遍历 代码实现详见 [示例程序 adjacency-matrix.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.3-7.1-adjacency-matrix.c) 中的`DFSTraverse`函数。
 
-邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.2-network-adjacency-list.c) 中的`DFSTraverse`函数。
+邻接表的深度优先遍历 代码实现详见 [示例程序 network-adjacency-list.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.2-network-adjacency-list.c) 中的`DFSTraverse`函数。
 
 ### 广度优先遍历
 
 **广度优先遍历（Breadth First Search）** ，又称为广度优先搜索，简称BFS。
 
-邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.3-traverse1.c) 中的`BFSTraverse`函数。
+邻接矩阵的广度优先遍历 代码实现详见 [示例程序 adjacency-matrix.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`BFSTraverse`函数。
 
-邻接矩阵的深度优先遍历 代码实现详见 [示例程序traverse1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.2-network-adjacency-list.c) 中的`BFSTraverse`函数。
+邻接表的广度优先遍历 代码实现详见 [示例程序 network-adjacency-list.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.2-network-adjacency-list.c) 中的`BFSTraverse`函数。
+
+## 最小生成树
+
+**最小生成树（Minimum Cost Spanning Tree）** ：构造连通网的最小代价生成树。
+
+### 普里姆（Prim）算法
+
+算法描述如下：
+
+1. 以某一个点A开始，将此点加入集合U。
+2. 在所有与集合U内点连接的边中寻找权重最小的边，并且要求它的另一个点B没有被访问过。如果能找到，就将点B加入集合U。
+3. 重复2的过程，直到所有的点都加入U，此时由所有边构成的树即为最小生成树。
+
+Prim算法的代码实现详见 [示例程序 7.1-adjacency-matrix](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`MiniSpanTree_Prim`函数。
+
+Prim算法的时间复杂度为`O(n^2)`。
+
+### 克鲁斯卡尔（Kruskal）算法
+
+算法描述如下：
+
+1. 一个图有m个节点，n条边。我们需要把m个节点看成m个独立的生成树，并且把n条边按照从小到大的数据进行排列。
+2. 在n条边中，我们依次取出其中的每一条边，如果发现边的两个节点分别位于两棵树上，那么把两棵树合并成为一棵树；如果树的两个节点位于同一棵树上，那么忽略这条边，继续运行。
+3. 依次进行，直至所有顶点都在一棵树上。
+
+
+Kruskal算法的代码实现详见 [示例程序 7.1-adjacency-matrix](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`MiniSpanTree_Kruskal`函数。
