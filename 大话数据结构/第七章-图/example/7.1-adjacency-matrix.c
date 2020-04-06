@@ -38,6 +38,11 @@ int Find(int * parent, int f);
 // Kruskal算法生成最小生成树
 void MiniSpanTree_Kruskal(MGraph G);
 
+typedef int Pathmatirx[MAXVEX]; // 用于存储最短路径下标的数组
+typedef int ShortPathTable[MAXVEX]; // 用于存储到各点最短路径的权值和
+// Dijkstra算法求最短路径
+void ShortestPath_Dijkstra(MGraph G, int v0, Pathmatirx * P, ShortPathTable * D);
+
 void printfChar(VertexType item);
 
 int main(void)
@@ -197,4 +202,69 @@ int Find(int * parent, int f)
   while (parent[f] > 0)
     f = parent[f];
   return f;
+}
+
+void ShortestPath_Dijkstra(MGraph G, int v0, Pathmatirx * P, ShortPathTable * D)
+{
+  int v, w, k, min;
+  int final[MAXVEX]; // final[w]为1代表已求得v0至vw的最短路径
+  for (v = 0; v < G.numVertexes; v++)
+  {
+    final[v] = 0;
+    (*D)[v] = G.arc[v0][v];
+    (*P)[v] = 0;
+  }
+  (*D)[v0] = 0; // v0至v0路径为0
+  final[v0] = 1; // v0至v0不需要求路径
+  for (v = 1; v < G.numVertexes; v++)
+  {
+    min = INFINITY;
+    for (w = 0; w < G.numVertexes; w++)
+    {
+      if (!final[w] && (*D)[w] < min)
+      {
+        k = w;
+        min = (*D)[w];
+      }
+    }
+    final[k] = 1;
+    for (w = 0; w < G.numVertexes; w++)
+    {
+      if (!final[w] && (min + G.arc[k][w]) < (*D)[w])
+      {
+        (*D)[w] = min + G.arc[k][w];
+        (*P)[w] = k;
+      }
+    }
+  }
+}
+
+typedef int PathmatirxFloyd[MAXVEX][MAXVEX];
+typedef int ShortPathTableFloyd[MAXVEX][MAXVEX];
+ShortestPath_Floyd(MGraph G, PathmatirxFloyd * P, ShortPathTableFloyd * D)
+{
+  int i, j, k;
+  // 初始化D与P
+  for (i = 0; i < G.numVertexes; i++)
+  {
+    for (j = 0; j < G.numVertexes; j++)
+    {
+      (*D)[i][j] = G.arc[i][j];
+      (*P)[i][j] = j; 
+    }
+    for (k = 0; k < G.numVertexes; k++)
+    {
+      for (i = 0; i < G.numVertexes; i++)
+      {
+        for (j = 0; j < G.numVertexes; j++)
+        {
+          if ((*D)[i][j] > (*D)[i][k] + (*D)[k][j])
+          {
+            (*D)[i][j] = (*D)[i][k] + (*D)[k][j];
+            (*P)[i][j] = (*P)[i][k];
+          }
+        }
+      }
+    }
+  }
 }

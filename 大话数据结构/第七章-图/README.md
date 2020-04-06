@@ -198,7 +198,7 @@ endADT
 
 Prim算法的代码实现详见 [示例程序 7.1-adjacency-matrix](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`MiniSpanTree_Prim`函数。
 
-Prim算法的时间复杂度为`O(n^2)`。
+Prim算法的时间复杂度为`O(n^2)`，n为顶点数。
 
 ### 克鲁斯卡尔（Kruskal）算法
 
@@ -210,3 +210,30 @@ Prim算法的时间复杂度为`O(n^2)`。
 
 
 Kruskal算法的代码实现详见 [示例程序 7.1-adjacency-matrix](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`MiniSpanTree_Kruskal`函数。
+
+Kruskal算法的时间复杂度为`O(eloge)`，e为边数。
+
+
+## 最短路径
+
+对于网图来说，最短路径，是指两顶点之间经过的边上权值之和最少的路径，并且称路径上的第一个顶点是源点，最后一个顶点是终点。
+
+### 迪杰斯特拉（Dijkstra）算法
+
+Dijkstra算法的代码实现详见 [示例程序 adjacency-matrix.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`ShortestPath_Dijkstra`函数。
+
+Dijkstra算法的时间复杂度为`O(n^2)`，n为顶点数。
+
+如果要知道任一顶点到其余所有顶点的最短路径，只需对每个顶点当做源点运行一次Dijkstra算法，时间复杂度为`O(n^3)`。
+
+### 弗洛伊德（Floyd）算法
+
+Floyd算法是一种基于动态规划的多源最短路算法，可以正确处理有向图或有向图或负权边（但不可存在负权环，否则会无限循环)的最短路径问题。
+
+算法的具体思想为：
+- 邻接矩阵Pathmatirx储存路径，同时最终状态代表点点的最短路径。如果没有直接相连的两点那么默认为一个很大的值(不要溢出)！而自己的长度为0
+- 从第1个到第n个点依次加入图中。每个点加入进行试探是否有路径长度被更改。
+- 而上述试探具体方法为遍历图中每一个点(i,j双重循环)，判断每一个点对距离是否因为加入的点而发生最小距离变化。如果发生改变，那么两点(i,j)距离就更改。
+- 重复上述直到最后插点试探完成。
+
+Floyd算法的代码实现详见 [示例程序 adjacency-matrix.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`ShortestPath_Floyd`函数。
