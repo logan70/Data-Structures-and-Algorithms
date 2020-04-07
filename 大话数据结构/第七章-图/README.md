@@ -237,3 +237,53 @@ Floyd算法是一种基于动态规划的多源最短路算法，可以正确处
 - 重复上述直到最后插点试探完成。
 
 Floyd算法的代码实现详见 [示例程序 adjacency-matrix.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.1-adjacency-matrix.c) 中的`ShortestPath_Floyd`函数。
+
+## 拓扑排序
+
+**AOV网（Activity On Vertex Network）** ：在一个表示工程的有向图中，用顶点表示活动，用弧表示活动之间的优先关系，这样的有向图为顶点表示活动的网，称为AOV网。
+
+**拓扑序列** ：设`G = (V, E)`是一个具有n个顶点的有向图，V中的顶点序列`v1, v2, ..., vn`，满足若从顶点vi到vj有一条路径，则在顶点序列中顶点vi必在顶点vj之前。则称这样的顶点序列为一个拓扑序列。
+
+**拓扑排序** ：对一个有向图构造拓扑序列的过程。构造时会有两个结果：
+
+1. 此网的全部顶点都被输出，说明该网是不存在环的AOV网；
+2. 输出顶点少于全部顶点，说明该网存在环，不是AOV网。
+
+### 拓扑排序算法
+
+**基本思路** ：从AOV网中选择一个入度为0的顶点输出，然后删去次顶点，并删除以此顶点为尾的弧，继续重复此步骤，直到输出全部顶点或者AOV网中不存在入度为0的顶点为止。
+
+拓扑排序算法的代码实现详见 [示例程序 topo.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.4-topo.c) 中的`TopologicalSort`函数。
+
+## 关键路径
+
+**AOE网（Activity On Edge Network）** ：在一个表示工程的带权有向图中，用顶点表示事件，用有向边表示活动，用边上的权值表示活动的持续事件，这种有向图的边表示活动的网，我们称之为AOE网。
+
+**始点/源点** ：AOE网中没有入边的顶点，AOE网只有一个始点/源点。
+
+**终点/汇点** ：AOE网中没有出边的顶点，AOE网只有一个终点/汇点。
+
+**路径长度** ：路径上各个活动所持续的时间之和。
+
+**关键路径** ：从源点到汇点具有最大长度的路径。
+
+**关键活动** ：在关键路径上的活动叫关键活动。
+
+### 关键路径算法原理
+
+需要找到所有活动的最早开始时间和最晚开始时间，并且比较它们，如果相等就意味着此活动是关键活动，活动间的路径为关键路径，如果不等则不是。
+
+为此，我们需要定义如下几个参数：
+
+1. 事件的最早发生时间 `etv(earliest time of vertex)`：即顶点vk的最早发生时间。
+2. 事件的最晚发生时间`ltv(latest time of vertex)`：即顶点vk的最晚发生时间，也就是超过此时间会延误整个工期。
+3. 活动的最早开工时间`ete(earliest time of edge)`：即弧ak的最早发生时间。
+4. 活动的最晚开工时间`lte(latest time of edge)`：即弧ak的最晚发生时间，也就是不推迟工期的最晚开工时间。
+
+由1和2求得3和4，然后再根据`ete[k]`是否与`lte[k]`相等来判断ak是否是关键活动。
+
+### 关键路径算法
+
+关键路径算法的讲解详见 [关键路径算法演示（AOE网）](https://www.jianshu.com/p/1857ed4d8128)。
+
+关键路径算法的代码实现详见 [示例程序 critical-path.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE/example/7.5-critical-path.c)
