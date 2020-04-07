@@ -35,3 +35,7 @@
 
 [【学习笔记】](https://github.com/logan70/Data-Structures-and-Algorithms/tree/master/大话数据结构/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE)
 
+## 第八章-查找
+
+[【学习笔记】](https://github.com/logan70/Data-Structures-and-Algorithms/tree/master/大话数据结构/%E7%AC%AC%E5%85%AB%E7%AB%A0-%E6%9F%A5%E6%89%BE)
+
