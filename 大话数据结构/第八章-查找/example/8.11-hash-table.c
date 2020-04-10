@@ -15,7 +15,7 @@ bool InitHashTable(HashTable * H)
 {
   int i;
   m = HASHSIZE;
-  H->count = n;
+  H->count = m;
   H->elem = (int *)malloc(m * sizeof(int));
   for (i = 0; i < m; i++)
     H->elem[i] = NULLKEY;
