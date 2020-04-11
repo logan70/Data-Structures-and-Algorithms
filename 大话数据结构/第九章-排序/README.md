@@ -17,3 +17,27 @@
 ### 排序用到的结构与函数
 
 排序用到的结构与函数详见 [示例程序 sort.h](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.1-sort.h)
+
+## 冒泡排序
+
+**冒泡排序（Bubble Sort）** 是一种交换排序，它的基本思想是：两两比较相邻记录的关键字，如果反序则交换，知道没有反序的记录位置。
+
+最简单交换排序代码实现详见 [示例代码 bubble-sort0.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.2-bubble-sort0.c) ，这个排序算法并不是标准冒泡排序算法，因为它不满足“两两比较相邻记录”的冒泡排序思想。
+
+标准的冒泡排序代码实现详见 [示例程序 bubble-sort1.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.3-bubble-sort1.c)。
+
+冒泡排序第一轮执行结果如下图所示：
+
+![冒泡排序](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/images/1-bubble-sort.png?raw=true)
+
+### 冒泡排序优化
+
+在一轮子循环中，如果未发生任何交换，则说明此序列已经有序，不需要继续后面的循环，借用一个标记变量来实现改进，优化后的代码详见 [示例程序 bubble-sort3.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.4-bubble-sort2.c)
+
+### 冒泡排序复杂度分析
+
+**时间复杂度** ：冒泡排序时间复杂度为`O(n^2)`，最好情况`O(n)`，即序列本来就是有序的。
+
+**空间复杂度** ：`O(1)`。
+
+**稳定性** ：稳定。

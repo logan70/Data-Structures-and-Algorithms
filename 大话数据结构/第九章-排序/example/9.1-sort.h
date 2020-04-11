@@ -6,6 +6,16 @@ typedef struct
   int length;
 } SqList;
 
+/**
+ * 对顺序表L作交换排序（冒泡排序初级版）
+ */
+void BubbleSort0(SqList * L);
+
+/**
+ * 对顺序表L作冒泡排序
+ */
+void BubbleSort(SqList * L);
+
 // 交换L中数组r的下标为i和j的数
 void swap(SqList * L, int i, int j)
 {
