@@ -41,3 +41,18 @@
 **空间复杂度** ：`O(1)`。
 
 **稳定性** ：稳定。
+
+## 简单选择排序
+
+**简单选择排序法（Simple Selection Sort）** 就是通过`n - i`次关键字间的比较，从`n - i + 1`个记录中选出关键字最小的记录，并和第(0 <= i < n)个记录交换之。
+
+简单选择排序算法的代码实现详见 [示例程序 select-sort.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.5-select-sort.c)
+
+### 简单选择排序复杂度分析
+
+**时间复杂度** ：简单选择排序时间复杂度为`O(n^2)`。
+
+**空间复杂度** ：`O(1)`。
+
+**稳定性** ：并非两两交换，不稳定。
+

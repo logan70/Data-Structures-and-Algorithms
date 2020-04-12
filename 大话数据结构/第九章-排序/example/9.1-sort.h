@@ -16,6 +16,16 @@ void BubbleSort0(SqList * L);
  */
 void BubbleSort(SqList * L);
 
+/**
+ * 对顺序表L作冒泡排序，并使用标志位进行优化
+ */
+void BubbleSort2(SqList * L);
+
+/**
+ * 对顺序表L作简单选择排序
+ */
+void SelectSort(SqList * L);
+
 // 交换L中数组r的下标为i和j的数
 void swap(SqList * L, int i, int j)
 {
