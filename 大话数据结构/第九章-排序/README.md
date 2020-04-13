@@ -54,5 +54,23 @@
 
 **空间复杂度** ：`O(1)`。
 
-**稳定性** ：并非两两交换，不稳定。
+**稳定性** ：先序同关键字元素可能被交换至后续同关键字元素之后，不稳定。
+
+## 直接插入排序
+
+**直接插入排序（Straight Insertion Sort）** 的基本操作是将一个记录插入到已经排好序的有序表中，从而得到一个新的、记录数增1的有序表。
+
+插入排序的代码实现详见 [示例程序 insert-sort.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.6-insert-sort.c)
+
+插入排序的过程如下图所示：
+
+![插入排序](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/images/2-insert-sort.gif?raw=true)
+
+### 直接插入排序复杂度分析
+
+**时间复杂度** ：直接插入排序时间复杂度为`O(n^2)`，最好情况`O(n)`。
+
+**空间复杂度** ：`O(1)`。
+
+**稳定性** ：稳定。
 
