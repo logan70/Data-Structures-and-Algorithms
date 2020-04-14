@@ -74,3 +74,21 @@
 
 **稳定性** ：稳定。
 
+## 希尔排序
+
+**希尔排序（Shell Sort）** 将相聚某个“增量”的记录组成一个子序列，子序列内分别进行直接插入排序，使得整个序列基本有序，然后不断缩小增量，重复进行插入排序，直至增量为1。
+
+希尔排序的代码实现详见 [示例程序 shell-sort.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.7-shell-sort.c)
+
+希尔排序的过程如下图所示：
+
+![希尔排序](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/images/3-shell-sort.gif?raw=true)
+
+### 希尔排序复杂度分析
+
+**时间复杂度** ：希尔排序时间复杂度为`O(n^(1.3—2))`。
+
+**空间复杂度** ：`O(1)`。
+
+**稳定性** ：跳跃式移动，不稳定。
+
