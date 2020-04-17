@@ -37,6 +37,21 @@ void HeapSort(SqList * L);
  */
 void Heapify(SqList * L, int s, int m);
 
+/**
+ * 对顺序表L作归并排序
+ */
+void MergingSort(SqList * L);
+
+/**
+ * 将SR[s..t]归并排序为TR1[s..t]
+ */
+void MSort(int SR[], int TR1[], int s, int t);
+
+/**
+ * 将有序的SR[i..m]和SR[m+1..n]归并为有序的TR[i..n]
+ */
+void Merge(int SR[], int TR[], int i, int m, int n);
+
 
 // 交换L中数组r的下标为i和j的数
 void swap(SqList * L, int i, int j)

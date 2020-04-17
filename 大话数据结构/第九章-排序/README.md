@@ -108,3 +108,8 @@
 
 **稳定性** ：记录的比较与交换是跳跃式进行，不稳定。
 
+## 归并排序
+
+**归并排序（Merging Sort）** 的原理是假设初始序列含有n个记录，则可以看成是n个有序的子序列，每个子序列的长度为1，然后两两归并，得到`[n / 2]([x]表示不小于x的最小整数)`个长度为2或1的有序子序列；再两两归并，...，如此重复，直至得到一个长度为n的有序序列位置，这种排序方法称为**2路归并排序**。
+
+归并排序的代码实现详见 [示例程序 merging-sort.c](https://github.com/logan70/Data-Structures-and-Algorithms/blob/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F/example/9.9-merging-sort.c)
