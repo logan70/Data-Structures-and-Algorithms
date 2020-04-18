@@ -27,6 +27,16 @@ void BubbleSort2(SqList * L);
 void SelectSort(SqList * L);
 
 /**
+ * 对顺序表L作插入排序
+ */
+void InsertSort(SqList * L);
+
+/**
+ * 对顺序表L作希尔排序
+ */
+void ShellSort(SqList * L);
+
+/**
  * 堆顺序表L进行堆排序
  */
 void HeapSort(SqList * L);
